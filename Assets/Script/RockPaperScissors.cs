@@ -95,10 +95,25 @@ public class RockPaperScissors : MonoBehaviour {
 
         // 호스트명 가져오기.
         string hostname = Dns.GetHostName();
+        
         // 호스트명에서 IP주소를 가져옵니다.
+        /*
         IPAddress[] adrList = Dns.GetHostAddresses(hostname);
-        m_serverAddress = adrList[0].ToString();	
-	}
+        m_serverAddress = adrList[0].ToString();
+        */
+        IPAddress[] Address = Dns.GetHostAddresses(hostname);
+
+        foreach (IPAddress hostAddress in Address)
+        {
+            if (hostAddress.ToString().Contains("192"))
+            {
+                //Debug.Log(hostAddress.ToString());
+
+                m_serverAddress = hostAddress.ToString();
+                break;
+            }
+        }
+    }
 	
 	// Update is called once per frame
 	void Update () {
