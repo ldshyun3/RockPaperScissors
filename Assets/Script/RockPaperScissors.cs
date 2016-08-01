@@ -83,6 +83,7 @@ public class RockPaperScissors : MonoBehaviour {
 
 		// 통신 모듈 작성.
 		GameObject go = new GameObject("Network");
+
 		if (go != null) {
 			TransportTCP transport = go.AddComponent<TransportTCP>();
 			if (transport != null) {
