@@ -85,6 +85,7 @@ public class RockPaperScissors : MonoBehaviour {
 		GameObject go = new GameObject("Network");
 
 		if (go != null) {
+
 			TransportTCP transport = go.AddComponent<TransportTCP>();
 			if (transport != null) {
 				transport.RegisterEventHandler(EventCallback);
